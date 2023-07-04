@@ -10,15 +10,15 @@
 <body>
     <div id="app">
         <h1>Vue To Do List</h1>
-        <input type="text" v-model="newTodoText">
+        <input type="text" v-model="newTodoText" @keydown.enter="addTodo" placeholder="Inserisci una nuova attività">
         <button @click="addTodo">Aggiungi</button>
         <ul>
-            <li v-for="todo in todos" :key="todo.id">
-                <span :style="{ 'text-decoration': todo.done ? 'line-through' : 'none' }">{{ todo.text }}</span>
-                <button @click="toggleTodoDone(todo)">x</button>
-            </li>
+          <li v-for="todo in todos" :key="todo.id">
+            <span :style="{ 'text-decoration': todo.done ? 'line-through' : 'none' }" @click="toggleTodoDone(todo)">{{ todo.text }}</span>
+            <button @click="removeTodo(todo)">x</button>
+          </li>
         </ul>
-    </div>
+      </div>
 
     <script src="script.js"></script>
 </body>

@@ -9,7 +9,12 @@ const app = Vue.createApp({
           { id: 6, text: 'Preparare meme per Alessio', done: false },
         ]
       }
+    },
+  methods: {
+    removeTodo(todoId) {
+      this.todos = this.todos.filter(todo => todo.id !== todoId);
     }
+  }
   });
 
   app.mount('#app');
